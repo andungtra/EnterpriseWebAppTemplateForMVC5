@@ -250,6 +250,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ViewModel\Account\" />
+    <Folder Include="ViewModel\Home\" />
+    <Folder Include="ViewModel\Manage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
