@@ -40,14 +40,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\ITableLog.cs" />
+    <Compile Include="Helper\DataGrid\IHelperDataGridFilter.cs" />
+    <Compile Include="Helper\DataGrid\IHelperDataGridPaginator.cs" />
+    <Compile Include="Helper\DataGrid\IHelperDataGridSorter.cs" />
+    <Compile Include="Helper\IHelperContext.cs" />
+    <Compile Include="Helper\IHelperSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IRepositoryForCUD.cs" />
+    <Compile Include="Repository\IRepositoryForRead.cs" />
+    <Compile Include="Service\IServiceCreate.cs" />
+    <Compile Include="Service\IServiceDelete.cs" />
+    <Compile Include="Service\IServiceRead.cs" />
+    <Compile Include="Service\IServiceUpdate.cs" />
+    <Compile Include="ValueObject\OperationResult.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entity\" />
-    <Folder Include="Helper\" />
-    <Folder Include="Service\" />
-    <Folder Include="ValueObject\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
