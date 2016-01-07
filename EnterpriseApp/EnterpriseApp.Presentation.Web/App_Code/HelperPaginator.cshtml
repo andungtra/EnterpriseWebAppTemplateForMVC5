@@ -1,0 +1,10 @@
+﻿@using EnterpriseApp.Domain.Shared.Helper.DataGrid;
+
+@helper GetItemRowNumber(IHelperDataGridPaginator paginator, int index)
+{
+
+    int? result = (paginator.CurrentPage - 1) * paginator.PageSize + index;
+
+    @result;
+}
+

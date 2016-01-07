@@ -1,0 +1,31 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+@{
+    ViewBag.Title = "403 Forbidden";
+}
+<div class="note note-warning">
+    <p>Bu sayfaya erişim yasaklıdır.</p>
+</div>
+
+@if (Request.IsLocal)
+{
+    if (Model != null && Model.Exception != null)
+    {
+        <div class="well">
+            <h3>Debug Notes For Developer</h3>
+            <p>Exception was: <strong>@Model.Exception.Message</strong></p>
+            @if (Model.Exception.StackTrace != null)
+            {
+                <p class="note note-danger">
+                    Stack Trace:<br />
+                    @Html.Raw(Model.Exception.StackTrace.Replace("\r\n", "<br />"))
+                </p>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="note note-danger">
+            <p>Exception was null</p>
+        </div>
+    }
+}

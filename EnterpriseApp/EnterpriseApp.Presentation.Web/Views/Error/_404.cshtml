@@ -1,0 +1,57 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+@using System.Threading;
+@{
+    ViewBag.Title = "404 Not Found";
+    string theme = "theme";
+    if (Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName.Equals("ar"))
+    {
+        theme += "_rtl";
+    }
+}
+@section pageLevelStyles {
+    @Styles.Render("~/bundles/metronic/" + theme + "/layout3/styles/page/error/404")
+}
+<div class="row">
+    <div class="col-md-12 page-404">
+        <div class="number">
+            404
+        </div>
+        <div class="details">
+            <h3>Ooooo! Kayboldun sanırım.</h3>
+            <p>
+                Aradığın sayfayı bulamadık.<br />
+                <a href="~/">
+                    Anasayfaya Dön
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+<br /><br /><br />
+@if (Request.IsLocal)
+{
+    <div class="row">
+        <div class="col-md-12">
+            @if (Model != null && Model.Exception != null)
+            {
+                <div class="well">
+                    <h3>Debug Notes For Developer</h3>
+                    <p>Exception was: <strong>@Model.Exception.Message</strong></p>
+                    @if (Model.Exception.StackTrace != null)
+                    {
+                        <p class="note note-danger">
+                            Stack Trace:<br />
+                            @Html.Raw(Model.Exception.StackTrace.Replace("\r\n", "<br />"))
+                        </p>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="note note-danger">
+                    <p>Exception was null</p>
+                </div>
+            }
+        </div>
+    </div>
+}
