@@ -1,4 +1,4 @@
-# hd-EnterpriseAppTemplate4MVC5
+# EnterpriseWebAppTemplateForMVC5
 ASP.NET MVC5 Enterprise Web Application Solution Template
 
 MultiLayered MVC 5 solution template for Enterprise Web Applications.
