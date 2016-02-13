@@ -1,9 +1,9 @@
 # hd-EnterpriseAppTemplate4MVC5
-ASP.NET MVC5 Web Application Template
+ASP.NET MVC5 Enterprise Web Application Solution Template
 
 MultiLayered MVC 5 solution template for Enterprise Web Applications.
 
-# Notes
+# Features
 - Multilayered Architecture
 - Code First with Fluent API
 - ViewModel generation with optimized db queries.
