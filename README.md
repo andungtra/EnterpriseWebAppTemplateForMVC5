@@ -33,3 +33,5 @@ MultiLayered MVC 5 solution template for Enterprise Web Applications.
   - Shared
 - Presentation
   - Web
+
+![alt tag](https://cloud.githubusercontent.com/assets/1695352/13027980/f2cb0bae-d269-11e5-9417-58f397602434.jpg)
