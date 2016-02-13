@@ -3,8 +3,6 @@ ASP.NET MVC5 Web Application Template
 
 MultiLayered MVC 5 solution template for Enterprise Web Applications.
 
-#warning 
-
 # Notes
 - Multilayered Architecture
 - Code First with Fluent API
@@ -21,14 +19,17 @@ MultiLayered MVC 5 solution template for Enterprise Web Applications.
 
 # Solution Structure
 - Application
+  - Service.SampleDomain
   - Service.Log
 - DataAccess
   - EF.Log
+  - EF.SampleDomain
   - EFContext
   - EFRepository
 - Domain
   - Identity
   - Log
+  - SampleDomain
   - Shared
 - Presentation
   - Web
