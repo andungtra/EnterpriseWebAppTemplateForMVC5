@@ -1,0 +1,62 @@
+﻿@model EnterpriseApp.Presentation.Web.Areas.SampleDomain.ViewModel.Book.ViewModelIndex
+@using EnterpriseApp.Presentation.Web.Areas.SampleDomain.ViewModel.Book;
+@{
+    ViewBag.Title = "Book List";
+}
+
+<p>
+    <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li class="active">Book List</li>
+    </ol>
+</p>
+
+<h2>@ViewBag.Title</h2>
+
+<p class="text-right">
+    <a href="@Url.Action("Create")" class="btn btn-success">
+        <i class="fa fa-save"></i> Create New
+    </a>
+</p>
+
+<div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+        Sırala <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+    </ul>
+</div>
+
+<table class="table table-condensed table-bordered table-striped table-hover">
+    <tr>
+        <th width="1%" class="text-center">#</th>
+        <th width="40%">@Html.DisplayNameFor( m => m.Data.First().Title )</th>
+        <th width="30%">@Html.DisplayNameFor(m => m.Data.First().Author )</th>
+        <th class="text-center">Action</th>
+    </tr>
+    @foreach (ViewModelIndex_Book book in Model.Data)
+    {
+        <tr>
+            <td class="text-center">99</td>
+            <td>@book.Title</td>
+            <td>@book.Author.Name</td>
+            <td class="text-center">
+                <a href="@Url.Action("View", new { id = book.Id })" class="btn btn-primary" title="@book.Title">
+                    <i class="fa fa-search"></i> View
+                </a>
+                <a href="@Url.Action("Edit", new { id = book.Id })" class="btn btn-warning" title="@book.Title">
+                    <i class="fa fa-edit"></i> Edit
+                </a>
+                <a href="@Url.Action("Delete", new { id = book.Id })" class="btn btn-danger" title="@book.Title">
+                    <i class="fa fa-eraser"></i> Delete
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+

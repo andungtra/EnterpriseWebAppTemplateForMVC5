@@ -16,7 +16,7 @@ namespace EnterpriseApp.Presentation.Web
         public void ConfigureAuth(IAppBuilder app)
         {
             // Configure the db context, user manager and signin manager to use a single instance per request
-            app.CreatePerOwinContext(ApplicationDbContextForCUD.CreateApplicationDbContextForCUD);
+            app.CreatePerOwinContext(ApplicationDbContextMyForCUD.CreateApplicationDbContextForCUD);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);

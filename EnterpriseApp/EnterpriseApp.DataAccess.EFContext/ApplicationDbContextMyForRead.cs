@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace EnterpriseApp.DataAccess.EFContext
 {
-    public class ApplicationDbContextForRead : ApplicationDbContextForCUD, IDbContextForRead
+    public class ApplicationDbContextMyForRead : ApplicationDbContextMyForCUD, IDbContextForRead
     {
-        public ApplicationDbContextForRead()
+        public ApplicationDbContextMyForRead()
             : base("ReadMySqlLocal", throwIfV1Schema: false)
         {
 
         }
 
-        public static ApplicationDbContextForRead CreateApplicationDbContext4Read()
+        public static ApplicationDbContextMyForRead CreateApplicationDbContext4Read()
         {
-            return new ApplicationDbContextForRead();
+            return new ApplicationDbContextMyForRead();
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

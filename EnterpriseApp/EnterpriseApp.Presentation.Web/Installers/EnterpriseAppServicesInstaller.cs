@@ -2,9 +2,17 @@
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using EnterpriseApp.Application.Service.Log;
+using EnterpriseApp.Application.Service.SampleDomain.Create;
+using EnterpriseApp.Application.Service.SampleDomain.Delete;
+using EnterpriseApp.Application.Service.SampleDomain.Read;
+using EnterpriseApp.Application.Service.SampleDomain.Update;
 using EnterpriseApp.DataAccess.EFContext;
 using EnterpriseApp.DataAccess.EFRepository;
 using EnterpriseApp.Domain.Log.Service;
+using EnterpriseApp.Domain.SampleDomain.Service.Create;
+using EnterpriseApp.Domain.SampleDomain.Service.Delete;
+using EnterpriseApp.Domain.SampleDomain.Service.Read;
+using EnterpriseApp.Domain.SampleDomain.Service.Update;
 using EnterpriseApp.Domain.Shared.Helper;
 using EnterpriseApp.Domain.Shared.Repository;
 using EnterpriseApp.Presentation.Web.Helper;
@@ -27,14 +35,14 @@ namespace EnterpriseApp.Presentation.Web.Installers
             // CUD Context
             container
                 .Register(Component.For<IDbContextForCUD>()
-                .ImplementedBy<ApplicationDbContextForCUD>()
+                .ImplementedBy<ApplicationDbContextMyForCUD>()
                 .LifeStyle.PerWebRequest
                 );
 
             // Read Context
             container
                 .Register(Component.For<IDbContextForRead>()
-                .ImplementedBy<ApplicationDbContextForRead>()
+                .ImplementedBy<ApplicationDbContextMyForRead>()
                 .LifeStyle.PerWebRequest
                 );
 
@@ -102,6 +110,58 @@ namespace EnterpriseApp.Presentation.Web.Installers
             container
                 .Register(Component.For<IServiceProcessLog>()
                 .ImplementedBy<ServiceProcessLog>()
+                .LifeStyle.PerWebRequest
+                );
+
+            // SAMPLE DOMAIN SERVICES
+
+            // Book Services
+            container
+                .Register(Component.For<IServiceCreateBook>()
+                .ImplementedBy<ServiceCreateBook>()
+                .LifeStyle.PerWebRequest
+                );
+
+            container
+                .Register(Component.For<IServiceReadBook>()
+                .ImplementedBy<ServiceReadBook>()
+                .LifeStyle.PerWebRequest
+                );
+
+            container
+                .Register(Component.For<IServiceUpdateBook>()
+                .ImplementedBy<ServiceUpdateBook>()
+                .LifeStyle.PerWebRequest
+                );
+
+            container
+                .Register(Component.For<IServiceDeleteBook>()
+                .ImplementedBy<ServiceDeleteBook>()
+                .LifeStyle.PerWebRequest
+                );
+
+            // Author Services
+            container
+                .Register(Component.For<IServiceCreateAuthor>()
+                .ImplementedBy<ServiceCreateAuthor>()
+                .LifeStyle.PerWebRequest
+                );
+
+            container
+                .Register(Component.For<IServiceReadAuthor>()
+                .ImplementedBy<ServiceReadAuthor>()
+                .LifeStyle.PerWebRequest
+                );
+
+            container
+                .Register(Component.For<IServiceUpdateAuthor>()
+                .ImplementedBy<ServiceUpdateAuthor>()
+                .LifeStyle.PerWebRequest
+                );
+
+            container
+                .Register(Component.For<IServiceDeleteAuthor>()
+                .ImplementedBy<ServiceDeleteAuthor>()
                 .LifeStyle.PerWebRequest
                 );
 

@@ -66,8 +66,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationDbContextForCUD.cs" />
-    <Compile Include="ApplicationDbContextForRead.cs" />
+    <Compile Include="ApplicationDbContextMyForCUD.cs" />
+    <Compile Include="ApplicationDbContextMyForRead.cs" />
     <Compile Include="Migrations\201601071907572_init.cs" />
     <Compile Include="Migrations\201601071907572_init.Designer.cs">
       <DependentUpon>201601071907572_init.cs</DependentUpon>
@@ -75,6 +75,10 @@
     <Compile Include="Migrations\201601071910110_update1.cs" />
     <Compile Include="Migrations\201601071910110_update1.Designer.cs">
       <DependentUpon>201601071910110_update1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601271638150_update2.cs" />
+    <Compile Include="Migrations\201601271638150_update2.Designer.cs">
+      <DependentUpon>201601271638150_update2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,6 +92,10 @@
       <Project>{63acdde9-6636-4cf5-b1db-bdbef3ad8adb}</Project>
       <Name>EnterpriseApp.DataAccess.EF.Log</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EnterpriseApp.DataAccess.EF.SampleDomain\EnterpriseApp.DataAccess.EF.SampleDomain.csproj">
+      <Project>{1c4f9f0d-36d7-4940-a7e1-7ad36ef443b7}</Project>
+      <Name>EnterpriseApp.DataAccess.EF.SampleDomain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EnterpriseApp.DataAccess.EFRepository\EnterpriseApp.DataAccess.EFRepository.csproj">
       <Project>{af928cd3-e9b1-4b62-9a4c-2c28f66072fc}</Project>
       <Name>EnterpriseApp.DataAccess.EFRepository</Name>
@@ -100,6 +108,10 @@
       <Project>{743c8074-12e8-4e0a-9b66-65af39ccf28f}</Project>
       <Name>EnterpriseApp.Domain.Log</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EnterpriseApp.Domain.SampleDomain\EnterpriseApp.Domain.SampleDomain.csproj">
+      <Project>{7d7769a9-814c-4bd4-bd7c-e92ae192f05f}</Project>
+      <Name>EnterpriseApp.Domain.SampleDomain</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201601071907572_init.resx">
@@ -107,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601071910110_update1.resx">
       <DependentUpon>201601071910110_update1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601271638150_update2.resx">
+      <DependentUpon>201601271638150_update2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

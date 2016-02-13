@@ -114,11 +114,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RazorEngine, Version=3.7.6.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
-      <HintPath>..\packages\RazorEngine.3.7.6\lib\net45\RazorEngine.dll</HintPath>
+    <Reference Include="RazorEngine, Version=3.7.7.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.7.7\lib\net45\RazorEngine.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -239,10 +239,18 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\ContainerBootstrapper.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\FontAwesomeBundleConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WindsorActivator.cs" />
+    <Compile Include="Areas\SampleDomain\Controllers\BookController.cs" />
+    <Compile Include="Areas\SampleDomain\SampleDomainAreaRegistration.cs" />
+    <Compile Include="Areas\SampleDomain\ViewModel\Book\ViewModelCreate.cs" />
+    <Compile Include="Areas\SampleDomain\ViewModel\Book\ViewModelDelete.cs" />
+    <Compile Include="Areas\SampleDomain\ViewModel\Book\ViewModelEdit.cs" />
+    <Compile Include="Areas\SampleDomain\ViewModel\Book\ViewModelIndex.cs" />
+    <Compile Include="Areas\SampleDomain\ViewModel\Book\ViewModelView.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -275,6 +283,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fontawesome\font-awesome1.css" />
+    <Content Include="Content\fontawesome\font-awesome.min.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -290,19 +301,37 @@
     <Content Include="Mvc.sitemap" />
     <Content Include="App_Code\HelperPaginator.cshtml" />
     <Content Include="log4net.config" />
+    <Content Include="Areas\SampleDomain\Views\web.config" />
+    <Content Include="Areas\SampleDomain\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\SampleDomain\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\SampleDomain\Views\Book\Index.cshtml" />
+    <Content Include="Areas\SampleDomain\Views\Book\View.cshtml" />
+    <Content Include="Areas\SampleDomain\Views\Book\Create.cshtml" />
+    <Content Include="Areas\SampleDomain\Views\Book\Edit.cshtml" />
+    <Content Include="Areas\SampleDomain\Views\Book\Delete.cshtml" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\jquery-2.1.4.js" />
-    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <None Include="Scripts\jquery-2.2.0.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.0.js" />
+    <Content Include="Scripts\jquery-2.2.0.min.js" />
+    <Content Include="Scripts\jquery-2.2.0.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
@@ -358,22 +387,30 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\SampleDomain\Models\" />
     <Folder Include="assets\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\jquery-2.1.4.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EnterpriseApp.Application.Service.Log\EnterpriseApp.Application.Service.Log.csproj">
       <Project>{d8816956-c7d3-4236-940d-d160c13e1af9}</Project>
       <Name>EnterpriseApp.Application.Service.Log</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EnterpriseApp.Application.Service.SampleDomain\EnterpriseApp.Application.Service.SampleDomain.csproj">
+      <Project>{aa554b55-02a3-4ba8-9a75-7413b47036aa}</Project>
+      <Name>EnterpriseApp.Application.Service.SampleDomain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EnterpriseApp.DataAccess.EF.Log\EnterpriseApp.DataAccess.EF.Log.csproj">
       <Project>{63acdde9-6636-4cf5-b1db-bdbef3ad8adb}</Project>
       <Name>EnterpriseApp.DataAccess.EF.Log</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EnterpriseApp.DataAccess.EF.SampleDomain\EnterpriseApp.DataAccess.EF.SampleDomain.csproj">
+      <Project>{1c4f9f0d-36d7-4940-a7e1-7ad36ef443b7}</Project>
+      <Name>EnterpriseApp.DataAccess.EF.SampleDomain</Name>
     </ProjectReference>
     <ProjectReference Include="..\EnterpriseApp.DataAccess.EFContext\EnterpriseApp.DataAccess.EFContext.csproj">
       <Project>{ea9ca7b8-e1bf-40a9-ba92-99106dade172}</Project>
@@ -390,6 +427,10 @@
     <ProjectReference Include="..\EnterpriseApp.Domain.Log\EnterpriseApp.Domain.Log.csproj">
       <Project>{743c8074-12e8-4e0a-9b66-65af39ccf28f}</Project>
       <Name>EnterpriseApp.Domain.Log</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EnterpriseApp.Domain.SampleDomain\EnterpriseApp.Domain.SampleDomain.csproj">
+      <Project>{7d7769a9-814c-4bd4-bd7c-e92ae192f05f}</Project>
+      <Name>EnterpriseApp.Domain.SampleDomain</Name>
     </ProjectReference>
     <ProjectReference Include="..\EnterpriseApp.Domain.Shared\EnterpriseApp.Domain.Shared.csproj">
       <Project>{f2b46ce5-23ac-4220-8b29-5d403a45741d}</Project>

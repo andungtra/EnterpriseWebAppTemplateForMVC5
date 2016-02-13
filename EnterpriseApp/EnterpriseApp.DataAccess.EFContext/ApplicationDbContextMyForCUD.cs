@@ -1,4 +1,5 @@
 ﻿using EnterpriseApp.DataAccess.EF.Log.MysqlMapping;
+using EnterpriseApp.DataAccess.EF.SampleDomain.MysqlMapping;
 using EnterpriseApp.DataAccess.EFRepository;
 using EnterpriseApp.Domain.Identity.Entity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -12,24 +13,24 @@ using System.Threading.Tasks;
 
 namespace EnterpriseApp.DataAccess.EFContext
 {
-    public class ApplicationDbContextForCUD : IdentityDbContext<ApplicationUser>, IDbContextForCUD
+    public class ApplicationDbContextMyForCUD : IdentityDbContext<ApplicationUser>, IDbContextForCUD
     {
 
-        public ApplicationDbContextForCUD()
+        public ApplicationDbContextMyForCUD()
             : base("CUDMySqlLocal", throwIfV1Schema: false)
         {
 
         }
 
-        public ApplicationDbContextForCUD(string connectionName, bool throwIfV1Schema)
+        public ApplicationDbContextMyForCUD(string connectionName, bool throwIfV1Schema)
             : base(connectionName, throwIfV1Schema)
         {
 
         }
 
-        public static ApplicationDbContextForCUD CreateApplicationDbContextForCUD()
+        public static ApplicationDbContextMyForCUD CreateApplicationDbContextForCUD()
         {
-            return new ApplicationDbContextForCUD();
+            return new ApplicationDbContextMyForCUD();
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -60,7 +61,14 @@ namespace EnterpriseApp.DataAccess.EFContext
             modelBuilder.Configurations.Add(new MapExceptionLog());
             modelBuilder.Configurations.Add(new MapProcessLog());
 
+            // SAMPLE DOMAIN
+            modelBuilder.Configurations.Add(new MapAuthor());
+            modelBuilder.Configurations.Add(new MapBook());
+
             // YOUR DOMAIN OBJECT MAPPING FILES
+
+
+
         }
 
         public new IDbSet<TEntity> Set<TEntity>() where TEntity : class

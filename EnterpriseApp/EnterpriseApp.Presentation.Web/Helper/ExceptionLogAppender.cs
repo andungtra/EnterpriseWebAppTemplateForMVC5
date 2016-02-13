@@ -24,7 +24,7 @@ namespace EnterpriseApp.Presentation.Web.Helper
         /// </summary>
         public ExceptionLogAppender()
         {
-            IDbContextForCUD dbContext = ApplicationDbContextForCUD.CreateApplicationDbContextForCUD();
+            IDbContextForCUD dbContext = ApplicationDbContextMyForCUD.CreateApplicationDbContextForCUD();
             IRepositoryForCUD<ExceptionLog> repository = new RepositoryForCUD<ExceptionLog>(dbContext);
             this._exceptionLogService = new ServiceExceptionLog(new HelperContextHttp(), repository);
         }

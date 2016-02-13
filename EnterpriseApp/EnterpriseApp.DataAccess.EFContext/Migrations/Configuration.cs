@@ -5,7 +5,7 @@ namespace EnterpriseApp.DataAccess.EFContext.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<EnterpriseApp.DataAccess.EFContext.ApplicationDbContextForCUD>
+    internal sealed class Configuration : DbMigrationsConfiguration<EnterpriseApp.DataAccess.EFContext.ApplicationDbContextMyForCUD>
     {
         public Configuration()
         {
@@ -16,7 +16,7 @@ namespace EnterpriseApp.DataAccess.EFContext.Migrations
 
         }
 
-        protected override void Seed(EnterpriseApp.DataAccess.EFContext.ApplicationDbContextForCUD context)
+        protected override void Seed(EnterpriseApp.DataAccess.EFContext.ApplicationDbContextMyForCUD context)
         {
             //  This method will be called after migrating to the latest version.
 

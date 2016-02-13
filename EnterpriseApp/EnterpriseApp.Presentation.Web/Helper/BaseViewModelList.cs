@@ -9,7 +9,7 @@ namespace EnterpriseApp.Presentation.Web.Helper
     public abstract class BaseViewModelList<T>
     {
 
-        public IEnumerable<T> List { get; set; }
+        public IEnumerable<T> Data { get; set; }
 
         public IHelperDataGridSorter Sorter { get; set; }
 
