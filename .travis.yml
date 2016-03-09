@@ -1,4 +1,4 @@
 language: csharp
 solution: ./EnterpriseApp/EnterpriseApp.sln
 script:
-	- xbuild /p:TargetFrameworkVersion="v4.0"
+- xbuild /p:TargetFrameworkVersion="v4.0"
